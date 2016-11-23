@@ -3,9 +3,7 @@ Rendering engine for runners
 
 Before start with this repo you need to install:
 ```
-$ npm install -g typescript webpack
-$ npm install typings --global
-$ npm install -g tslint
+$ npm install -g typescript webpack express typings tslint
 ```
 
 After installation please link global TypeScript to your project
@@ -19,7 +17,7 @@ then
 $ npm install
 ```
 
-#Build your app
+# Build your app
 it's primitive way, yes, but it works fine for now
 ```
 $ webpack --progress --config config/webpack/index.js
