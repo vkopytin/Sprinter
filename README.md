@@ -22,8 +22,10 @@ it's primitive way, yes, but it works fine for now
 ```
 $ webpack --progress --config config/webpack/index.js
 $ webpack --progress --config config/webpack/server.js
-$ DEBUG=express: * node ./build/server.js
+$ DEBUG=express:* node ./build/server.js
 ```
+
+After that you can see your Application by this URL: http://localhost:8889
 
 for code editing we are using visual studio code (it's free)
 some extensions you could found useful
