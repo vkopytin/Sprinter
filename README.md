@@ -32,7 +32,7 @@ $ npm run start:server
 
 After that you can see your Application by this URL: http://localhost:8889
 
-for code editing we are using visual studio code (it's free)
-some extensions you could found useful
+For code editing we are using [visual studio code](https://code.visualstudio.com/) (it's free)
+some extensions you could found useful:
 * vscode-todo-parser - to parse TODO's from code files
 * tslint - for obvious reason :)
