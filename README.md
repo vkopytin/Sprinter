@@ -29,4 +29,3 @@ for code editing we are using visual studio code (it's free)
 some extensions you could found useful
 * vscode-todo-parser - to parse TODO's from code files
 * tslint - for obvious reason :)
-
