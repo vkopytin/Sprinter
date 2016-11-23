@@ -63,7 +63,6 @@ class Html extends React.Component<IHtmlProps, {}> {
 
           {renderStyles}
           <link rel="shortcut icon" href="/favicon.ico" />
-          <link rel="stylesheet" href="https://static.rbl.ms/static/css-build/roar/runner/critical.css" />
         </head>
         <body {...this.props.bodyClasses}>
           <main id="app" dangerouslySetInnerHTML={{ __html: markup }} />
