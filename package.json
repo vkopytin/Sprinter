@@ -12,6 +12,7 @@
         "postbuild": "webpack --config config/webpack/server.js",
         "prestart": "npm run build",
         "start": "node build/server.js",
+        "start:server": "DEBUG=express:* node ./build/server.js",
         "start:prod": "cross-env NODE_ENV=production npm start",
         "test": "node_modules/.bin/karma start config/test/karma.conf.js",
         "lint": "node_modules/.bin/tslint \"src/**/**.ts*\""
