@@ -4,10 +4,10 @@ Rendering engine for runners
 Before start with this repo you need to install:
 ```
 $ npm install -g typescript webpack
+$ npm install typings --global
+$ npm install -g tslint
 
 ```
-npm install typings --global
-npm install -g tslint
 
 After installation please link global TypeScript to your project
 
