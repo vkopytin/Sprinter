@@ -5,6 +5,7 @@ export { Header, SectionsList, SearchForm }
 
 class Header extends React.Component<any, any> {
   public render() {
+    // TODO: make sure we need all these data-... stuff
     return (
       <Blocks data-rm-device-mode="desktop">
             <Block name="Top Bar" removable="false">
