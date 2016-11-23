@@ -1,0 +1,7 @@
+export { BodyContainer } from './Body'
+export { FrontPage } from './FrontPage'
+export { SectionPage } from './SectionPage'
+export { TagPage } from './TagPage'
+export { SearchPage } from './SearchPage'
+export { PostPage } from './PostPage'
+export { StaticPage } from './StaticPage'
