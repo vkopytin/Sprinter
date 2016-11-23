@@ -24,6 +24,11 @@ $ webpack --progress --config config/webpack/index.js
 $ webpack --progress --config config/webpack/server.js
 $ DEBUG=express:* node ./build/server.js
 ```
+Or you can use short commands via npm run:
+```
+$ npm run rebuild
+$ npm run start:server
+```
 
 After that you can see your Application by this URL: http://localhost:8889
 
