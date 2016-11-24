@@ -11,7 +11,7 @@ export { BodyContainer }
 class BodyContainer extends React.Component<any, any> {
    public constructor(props) {
       super(props);
-      this.state = {menuOpened: false};
+      this.state = {open: false};
   }
   protected onMenuButtonClick(event) {
       console.log('event', event);
