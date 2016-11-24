@@ -4,6 +4,9 @@ import {Block, Blocks} from '../../components/';
 export { Header, SectionsList, SearchForm }
 
 class Header extends React.Component<any, any> {
+  public showMenu() {
+      alert('show menu');
+  }
   public render() {
     // TODO: make sure we need all these data-... stuff
     return (
