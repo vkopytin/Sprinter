@@ -36,6 +36,12 @@ var config = {
     filename: 'js/[name].[chunkhash].js'
   },
 
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
+
   module: {
     preLoaders: [
       {

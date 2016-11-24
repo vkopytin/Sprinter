@@ -24,11 +24,31 @@ var config = {
     ]
   },
 
+  plugins: [
+    new ManifestPlugin({
+      fileName: '../manifest.json'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        BROWSER: JSON.stringify(true),
+        NODE_ENV: JSON.stringify('development')
+      }
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
+
   output: {
     path: path.resolve('./build/public'),
     publicPath: '/public/',
     filename: 'js/[name].js',
     pathinfo: true
+  },
+
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
 
   module: {
@@ -100,21 +120,7 @@ var config = {
 
   tslint: {
     failOnHint: true
-  },
-
-  plugins: [
-    new ManifestPlugin({
-      fileName: '../manifest.json'
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        BROWSER: JSON.stringify(true),
-        NODE_ENV: JSON.stringify('development')
-      }
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ]
+  }
 };
 
 module.exports = config;
