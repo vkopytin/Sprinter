@@ -17,6 +17,9 @@ class BodyContainer extends React.Component<any, any> {
       console.log('event', event);
       this.setState({open: !this.state.open});
   }
+  public onRequestChange(open) {
+      this.setState({open});
+  }
   public render() {
       let onClick = this.onMenuButtonClick.bind(this);
       return (
@@ -27,7 +30,11 @@ class BodyContainer extends React.Component<any, any> {
             title={<SiteLogo removable="false" alt="Fake Testing" logo={this.props.siteLogos} />}
             iconElementRight={<SearchForm removable="false"/>}
         />
-        <Drawer open={this.state.open}>
+        <Drawer
+            open={this.state.open}
+            docked={false}
+            onRequestChange={this.onRequestChange.bind(this)}
+        >
             <MainMenu />
         </Drawer>
         {this.props.children}

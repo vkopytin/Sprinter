@@ -1,4 +1,5 @@
 import * as React from 'react';
+import MenuItem from 'material-ui/MenuItem';
 
 interface IMenuItem {
     id: string;
@@ -34,14 +35,16 @@ export class MainMenu extends React.Component<any, any> {
     }
     private renderItem(item, index) {
         return (
-            <li key={`leftNav-${index}`} className={`main-menu-item main-menu-item--${item.id}`}>
-                <div>
-                    <a className="link"
-                       href={`/core/dashboard/${item.id}`}
-                       title="Dashboard">
-                        <span className="item-link">{item.title}</span>
-                    </a>
-                </div>
-            </li>);
+            // <li key={`leftNav-${index}`} className={`main-menu-item main-menu-item--${item.id}`}>
+            //     <div>
+            //         <a className="link"
+            //            href={`/core/dashboard/${item.id}`}
+            //            title="Dashboard">
+            //             <span className="item-link">{item.title}</span>
+            //         </a>
+            //     </div>
+            // </li>
+            <MenuItem key={item.id} href={`/core/dashboard/${item.id}`} title={item.title}>{item.title}</MenuItem>
+        );
     }
 }
