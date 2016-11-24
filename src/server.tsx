@@ -14,6 +14,11 @@ const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
 import { configureStore } from './app/redux/store';
 import routes from './app/routes';
 
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import { Html } from './app/containers/Html';
 const manifest = require('../build/manifest.json');
 
@@ -67,9 +72,14 @@ app.get('*', (req, res) => {
         const context = { insertCss: (...styles) => styles.forEach(style => css.push(style._getCss())) };
         const asyncRenderData = Object.assign({}, renderProps, { store, context });
         loadOnServer(asyncRenderData).then(() => {
+            const muiTheme = getMuiTheme(lightBaseTheme, {
+                userAgent: req.headers['user-agent'],
+            });
             const markup = ReactDOMServer.renderToString(
                 <Provider store={store} key="provider">
-                    <ReduxAsyncConnect {...renderProps} context={context} />
+                  <MuiThemeProvider muiTheme={muiTheme}>
+                        <ReduxAsyncConnect {...renderProps} context={context} />
+                   </MuiThemeProvider>
                 </Provider>
             );
 

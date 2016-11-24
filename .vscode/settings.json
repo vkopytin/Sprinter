@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "TodoParser": {
+         "folderExclude": [
+            "node_modules",
+            "build"
+        ],
+        "markers": ["TODO:", "NOTE:", "REMINDER:"]
+    }
+}

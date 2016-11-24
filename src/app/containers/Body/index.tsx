@@ -2,37 +2,34 @@ const appConfig = require('../../../../config/main');
 import * as React from 'react';
 import * as Helmet from 'react-helmet';
 import { MainMenu } from '../../components';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Drawer from 'material-ui/Drawer';
-import AppBar from 'material-ui/AppBar';
+import { Drawer, AppBar } from 'material-ui';
+
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export { BodyContainer }
 
 class BodyContainer extends React.Component<any, any> {
    public constructor(props) {
       super(props);
-      this.state = {menuOpened: false};
+      this.state = {open: false};
   }
-  protected onMenuButtonClick(event) {
+  public onMenuButtonClick(event) {
       console.log('event', event);
       this.setState({open: !this.state.open});
   }
   public render() {
+      let onClick = this.onMenuButtonClick.bind(this);
       return (
       <div>
         <Helmet {...appConfig.app} {...appConfig.app.head}/>
-        <MuiThemeProvider>
-            <div>
-                <AppBar
-                    onLeftIconButtonTouchTap={this.onMenuButtonClick.bind(this)}
-                    title={<SiteLogo removable="false" alt="Fake Testing" logo={this.props.siteLogos} />}
-                    iconElementRight={<SearchForm removable="false"/>}
-                />
-                <Drawer open={this.state.open}>
-                  <MainMenu />
-                </Drawer>
-            </div>
-        </MuiThemeProvider>
+        <AppBar
+            onLeftIconButtonTouchTap={onClick}
+            title={<SiteLogo removable="false" alt="Fake Testing" logo={this.props.siteLogos} />}
+            iconElementRight={<SearchForm removable="false"/>}
+        />
+        <Drawer open={this.state.open}>
+            <MainMenu />
+        </Drawer>
         {this.props.children}
       </div>
     );

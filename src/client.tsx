@@ -12,18 +12,27 @@ import { configureStore } from './app/redux/store';
 import 'isomorphic-fetch';
 import routes from './app/routes';
 
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 const store = configureStore(
   browserHistory,
   window.__INITIAL_STATE__
 );
 const history = syncHistoryWithStore(browserHistory, store);
 const connectedCmp = (props) => <ReduxAsyncConnect {...props} />;
-
+const muiTheme = getMuiTheme(lightBaseTheme, {
+        userAgent: navigator.userAgent,
+      });
 ReactDOM.render(
-  <Provider store={store} key="provider">
-    <Router history={history} render={connectedCmp}>
-      {routes}
-    </Router>
-  </Provider>,
+    <Provider store={store} key="provider">
+        <MuiThemeProvider muiTheme={muiTheme}>
+            <Router history={history} render={connectedCmp}>
+                {routes}
+            </Router>
+        </MuiThemeProvider>
+    </Provider>
+    ,
   document.getElementById('app')
 );
