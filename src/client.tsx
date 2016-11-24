@@ -25,6 +25,10 @@ const connectedCmp = (props) => <ReduxAsyncConnect {...props} />;
 const muiTheme = getMuiTheme(lightBaseTheme, {
         userAgent: navigator.userAgent,
       });
+
+import * as injectTapEventPluginAll from 'react-tap-event-plugin';
+injectTapEventPluginAll();
+
 ReactDOM.render(
     <Provider store={store} key="provider">
         <MuiThemeProvider muiTheme={muiTheme}>
