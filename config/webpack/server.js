@@ -13,6 +13,10 @@ fs.readdirSync('node_modules')
 var config = {
   externals: nodeModules,
   target: 'node',
+  
+  devtool: 'source-map',
+
+  debug: true,
 
   resolve: {
     extensions: ['', '.ts', '.tsx', '.js', '.jsx']

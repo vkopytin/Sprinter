@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
 
 interface IMenuItem {
@@ -9,11 +10,11 @@ interface IMenuItem {
     type: number;
 }
 
-export class MainMenu extends React.Component<any, any> {
+class MainMenuView extends React.Component<any, any> {
     public constructor(props) {
         super(props);
         // TODO: get this data from store, should be store.mainMenu or so
-        const MainMenu: IMenuItem[] = [
+        /*const MainMenu: IMenuItem[] = [
             {id: 'overview', url: '/core/dashboard/overview/', title: 'Dashboard', loginRequired: true, type: 0},
             {id: 'runner_editor', url: '/core/dashboard/runner', title: 'Layout & Design',
                 loginRequired: true, type: 0},
@@ -24,7 +25,8 @@ export class MainMenu extends React.Component<any, any> {
             {id: 'login', url: '/login', title: 'Log in', loginRequired: false, type: 0},
             {id: 'logout', url: '/core/users/logout', title: 'Log out', loginRequired: true, type: 0},
         ];
-        this.state = {leftNav: MainMenu};
+        this.state = {leftNav: MainMenu};*/
+        this.state = props;
     }
     public render() {
         return (
@@ -48,3 +50,7 @@ export class MainMenu extends React.Component<any, any> {
         );
     }
 }
+
+const MainMenu = connect((state) => state.mainMenu, (dispatch) => ({}))(MainMenuView);
+
+export { MainMenu }

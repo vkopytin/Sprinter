@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import { mainMenuReducer } from './mainmenu-reducer';
 // import { counterReducer } from './modules/counter';
 // import { starsReducer } from './modules/stars';
 // import { IStore } from './IStore';
@@ -11,6 +12,7 @@ const rootReducer: Redux.Reducer<any> = combineReducers<any>({
   routing: routerReducer,
 //   counter: counterReducer,
 //   stars: starsReducer,
+  mainMenu: mainMenuReducer,
   reduxAsyncConnect: reducer,
 });
 
